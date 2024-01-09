@@ -6,10 +6,10 @@ The Siamese Network I implemented uses a Triplet network. This network consists 
 
  
 Figure 1 Siamese Triplet Model
-(README_Images/image-1.png)
+![alt text](README_Images/image-1.png)
  
 Figure 2 ResNet 18 Model (last FC layer is removed to produce detailed embedding)
-(README_Images/image-2.png)
+![alt text](README_Images/image-2.png)
 
 ## Dependencies
 Python 3.x
@@ -23,22 +23,24 @@ Note on Reproducibility: To ensure reproducible results, set the random seed for
 ## Usage
  
 Figure 3 Loss Plot of Siamese Network (y-axis loss, x-axis iterations over 20 epochs)
-(README_Images/image-3.png)
+![alt text](README_Images/image-3.png)
  
 Figure 4 Loss Plot for Classifier over 16 epochs
-(README_Images/image-4.png)
+
+![alt text](README_Images/image-4.png)
  
 Figure 5 Loss Plot for Classifier over 20 epochs
-(README_Images/image-5.png)
+
+![alt text](README_Images/image-5.png)
 
 From looking at the values of the loss over the different epochs it appears that the loss starts to remain consistent around the 15 epoch mark. Since the model is not significantly improving after this time, to prevent overfitting, I trimmed the number of epochs from 20 to 16.
-Currently the classifier network classifies the test set with 71.27% accuracy but achieves 98% accuracy on the validation set. This is indicative of over-fitting of the model and possible data leakage during training.
+Currently, the classifier network classifies the test set with 71.27% accuracy but achieves 98% accuracy on the validation set. This is indicative of over-fitting of the model and possible data leakage during training.
 
 ## Data Preprocessing
-The images are converted to the RGB space and normalized using a calculated set of mean and standard deviation values. The data is transformed into tensors using PyTorch's transforms library. To generalise the data further, a random crop dataset is concatonated to the original dataset.
+The images are converted to the RGB space and normalized using a calculated set of mean and standard deviation values. The data is transformed into tensors using PyTorch's transforms library. To generalise the data further, a random crop dataset is concatenated to the original dataset.
 
 ### Data Splits
-The total dataset is divided into 70% training and 30% testing sets. This training set it then split into 80% used for training and 20% used for validation. This split ensures that the model is trained on a diverse set of data and generalizes well to unseen data.
+The total dataset is divided into 70% training and 30% testing sets. This training set is then split into 80% used for training and 20% used for validation. This split ensures that the model is trained on a diverse set of data and generalizes well to unseen data.
 
 ## Code Comments
 For detailed comments, please refer to the inline comments within the code.
