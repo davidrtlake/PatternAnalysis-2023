@@ -41,6 +41,7 @@ The images are converted to the RGB space and normalized using a calculated set 
 
 ### Data Splits
 The total dataset is divided into 70% training and 30% testing sets. This training set is then split into 80% used for training and 20% used for validation. This split ensures that the model is trained on a diverse set of data and generalizes well to unseen data.
+Each of these data splits is grouped by individual patients and of the same slice of the patient's brain. This is to ensure that the Siamese network works to find the differences between AD and NC brains, instead of simply finding the difference between two slices of the brain.
 
 ## Code Comments
 For detailed comments, please refer to the inline comments within the code.
